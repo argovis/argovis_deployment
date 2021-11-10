@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  labels:
+    app: api
+spec:
+  replicas: {{ .Values.api.replicas }}
+  selector:
+    matchLabels:
+      app: api
+  template:
+    metadata:
+      name: argoapi
+      labels:
+        app: api
+    spec:
+      containers:
+        - name: argoapi
+          image: "{{ .Values.api.repository }}:{{ .Values.api.tag }}"
+          resources:
+            requests:
+              memory: "0Gi"
+              cpu: "0m"
+            limits:
+              memory: "4Gi"
+              cpu: "2000m"
+          livenessProbe:
+            httpGet:
+              path: /profiles/overview
+              port: 8080
+              httpHeaders:
+              - name: x-argokey
+                value: xxx
+            initialDelaySeconds: 5
+            periodSeconds: 5

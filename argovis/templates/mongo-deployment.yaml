@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mongo-deployment
+  labels:
+    app: mongo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: mongo
+  template:
+    metadata:
+      name: argomongo
+      labels:
+        app: mongo
+    spec:
+      volumes:
+        - name: mongostore
+          persistentVolumeClaim:
+            claimName: mongoback
+      containers:
+        - name: task-pv-container
+          image: "{{ .Values.mongo.repository }}:{{ .Values.mongo.tag }}"
+          resources:
+            requests:
+              memory: "0Gi"
+              cpu: "0m"
+            limits:
+              memory: "8Gi"
+              cpu: "1000m"
+          volumeMounts:
+            - mountPath: "/data/db"
+              name: mongostore
+          livenessProbe:
+            exec:
+              command:
+              - mongo
+              - --eval
+              - db.adminCommand('ping')
+            failureThreshold: 3
+            periodSeconds: 10
+            successThreshold: 1
+            timeoutSeconds: 5
