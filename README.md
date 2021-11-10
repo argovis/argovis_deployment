@@ -8,6 +8,7 @@ This repo will contain notes and resource on deploying Argovis to production.
    - Log into cluster: `oc login`, follow instructions.
    - Birth: `helm install argovis ./argovis`
    - Growth: `helm upgrade argovis ./argovis`
+   - Setbacks: `helm rollback argovis`
    - Death: `helm uninstall argovis` 
 
  - Assumes a pre-existing PVC called `mongoback` which contains the current state of the mongo database
