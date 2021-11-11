@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: argovis
+spec:
+  host: argovis-atoc-argovis-dev.apps.containers01.colorado.edu
+  to:
+    kind: Service
+    name: ng
+    weight: 100
+  port:
+    targetPort: 3000
+status:
+  ingress:
+    - host: argovis-atoc-argovis-dev.apps.containers01.colorado.edu
+      routerName: default
+      routerCanonicalHostname: apps.containers01.colorado.edu
