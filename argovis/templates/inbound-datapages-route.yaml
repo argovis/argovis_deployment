@@ -1,0 +1,17 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: argovis-datapages
+spec:
+  host: argovis-datapages-atoc-argovis-dev.apps.containers01.colorado.edu
+  to:
+    kind: Service
+    name: datapages
+    weight: 100
+  port:
+    targetPort: 3000
+status:
+  ingress:
+    - host: argovis-datapages-atoc-argovis-dev.apps.containers01.colorado.edu
+      routerName: default
+      routerCanonicalHostname: apps.containers01.colorado.edu

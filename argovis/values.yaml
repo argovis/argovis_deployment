@@ -8,3 +8,9 @@ api:
   repository: argovis/api
   tag: 2.0.0-rc1
   replicas: 1
+ng:
+  repository: argovis/ng
+  tag: dev
+datapages:
+  repository: argovis/datapages
+  tag: dev

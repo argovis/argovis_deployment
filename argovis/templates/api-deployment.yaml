@@ -24,7 +24,7 @@ spec:
               cpu: "0m"
             limits:
               memory: "4Gi"
-              cpu: "2000m"
+              cpu: "1000m"
           livenessProbe:
             httpGet:
               path: /profiles/overview

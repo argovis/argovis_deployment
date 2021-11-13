@@ -1,31 +1,28 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: ng-deployment
+  name: datapages-deployment
   labels:
-    app: ng
+    app: datapages
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: ng
+      app: datapages
   template:
     metadata:
-      name: argong
+      name: argodatapages
       labels:
-        app: ng
+        app: datapages
     spec:
       containers:
-        - name: argong
-          image: "{{ .Values.ng.repository }}:{{ .Values.ng.tag }}"
+        - name: argodatapages
+          image: "{{ .Values.datapages.repository }}:{{ .Values.datapages.tag }}"
           imagePullPolicy: Always
           resources:
             requests:
               memory: "0Gi"
               cpu: "0m"
             limits:
-              memory: "1Gi"
+              memory: "500Mi"
               cpu: "250m"
-      securityContext:
-        runAsUser: 1000830000
-        runAsGroup: 1000830000
