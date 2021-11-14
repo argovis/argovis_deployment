@@ -3,16 +3,16 @@ mongo:
   tag: 4.2.3
 redis:
   repository: argovis/redis
-  tag: 6.2.6
+  tag: 6.2.6-211114
 api:
   repository: argovis/api
   tag: 2.0.0-rc1
   replicas: 1
 ng:
   repository: argovis/ng
-  tag: dev
+  tag: 2.0.0-rc1
   api_root: http://argovis-api-atoc-argovis-dev.apps.containers01.colorado.edu
   dp_root: http://argovis-datapages-atoc-argovis-dev.apps.containers01.colorado.edu
 datapages:
   repository: argovis/datapages
-  tag: dev
+  tag: 2.0.0-rc1
