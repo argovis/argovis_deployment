@@ -11,6 +11,8 @@ api:
 ng:
   repository: argovis/ng
   tag: dev
+  api_root: http://argovis-api-atoc-argovis-dev.apps.containers01.colorado.edu
+  dp_root: http://argovis-datapages-atoc-argovis-dev.apps.containers01.colorado.edu
 datapages:
   repository: argovis/datapages
   tag: dev

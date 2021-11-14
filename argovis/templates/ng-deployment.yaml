@@ -19,6 +19,11 @@ spec:
         - name: argong
           image: "{{ .Values.ng.repository }}:{{ .Values.ng.tag }}"
           imagePullPolicy: Always
+          env:
+          - name: ARGOVIS_API_ROOT
+            value: {{ .Values.ng.api_root }}
+          - name: ARGOVIS_DP_ROOT
+            value: {{ .Values.ng.dp_root }}
           resources:
             requests:
               memory: "0Gi"
