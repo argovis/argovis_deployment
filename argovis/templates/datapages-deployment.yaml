@@ -19,6 +19,12 @@ spec:
         - name: argodatapages
           image: "{{ .Values.datapages.repository }}:{{ .Values.datapages.tag }}"
           imagePullPolicy: Always
+          env:
+          - name: ARGOVIS_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: apitoken
+                key: token
           resources:
             requests:
               memory: "0Gi"
