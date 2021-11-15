@@ -19,7 +19,10 @@ Argovis consists of five microservices, wihch all have their own release process
    - GitHub: https://github.com/argovis/datapages
    - Docker Hub: https://hub.docker.com/repository/docker/argovis/datapages
 
-Also, this chart assumes there exists a PVC called `mongoback`, which contains everything from `/data/db` in the mongo container.
+Also, this chart assumes there exists the following objects in the cluster: 
+
+ - a PVC called `mongoback`, which contains everything from `/data/db` in the mongo container.
+ - a secret called `apitoken`, which contains a key `token` that will be used as an API token. This token must be present and active in mongodb.
 
 When any of the underlying base images change, or anything about the orchestration structure changes, follow the procedures below to increment the release on the OKD cluster:
 
@@ -27,6 +30,7 @@ When any of the underlying base images change, or anything about the orchestrati
  - In `argovis/Chart.yaml`, increment the `version` and `appVersion` values. Keep these the same, and use semver.
  - Log into the OKD cluster from the command line by doing `oc login`, and following the link it provides.
  - Update the application: `helm upgrade argovis ./argovis`
+ - Make a new release in this repo tagged the same as the chart version.
 
 Some helpful things to know about application management that you may occassionally need:
 
