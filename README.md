@@ -30,6 +30,7 @@ When any of the underlying base images change, or anything about the orchestrati
  - In `argovis/Chart.yaml`, increment the `version` and `appVersion` values. Keep these the same, and use semver.
  - Log into the OKD cluster from the command line by doing `oc login`, and following the link it provides.
  - Update the application: `helm upgrade argovis ./argovis`
+ - Make a new release in this repo tagged the same as the chart version.
 
 Some helpful things to know about application management that you may occassionally need:
 
