@@ -10,7 +10,7 @@ api:
   replicas: 1
 ng:
   repository: argovis/ng
-  tag: 2.0.0-rc3
+  tag: 2.0.0-rc4
   api_root: http://argovis-api-atoc-argovis-dev.apps.containers01.colorado.edu
   dp_root: http://argovis-datapages-atoc-argovis-dev.apps.containers01.colorado.edu
 datapages:
