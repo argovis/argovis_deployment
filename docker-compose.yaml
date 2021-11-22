@@ -1,7 +1,7 @@
 version: '3'
 services:
   ng:
-    image: argovis/ng:2.0.0-rc2
+    image: argovis/ng:2.0.0-rc5
     user: 1000830000:1000830000
     restart: always
     environment:
@@ -18,7 +18,7 @@ services:
     volumes:
        - /storage/mongodb:/data/db:Z
   api:
-    image: argovis/api:2.0.0-rc1
+    image: argovis/api:2.0.0-rc2
     restart: always
     ports:
      - 8080:8080

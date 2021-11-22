@@ -5,7 +5,7 @@ metadata:
   labels:
     app: redis
 spec:
-  replicas: 1
+  replicas: {{ .Values.redis.replicas }}
   selector:
     matchLabels:
       app: redis
@@ -23,8 +23,8 @@ spec:
               memory: "0Mi"
               cpu: "0m"
             limits:
-              memory: "500Mi"
-              cpu: "250m"
+              memory: {{ .Values.redis.memory }}
+              cpu: {{ .Values.redis.cpu }}
           livenessProbe:
             exec:
               command:

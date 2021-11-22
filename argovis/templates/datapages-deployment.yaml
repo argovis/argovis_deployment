@@ -5,7 +5,7 @@ metadata:
   labels:
     app: datapages
 spec:
-  replicas: 1
+  replicas: {{ .Values.datapages.replicas }}
   selector:
     matchLabels:
       app: datapages
@@ -30,5 +30,5 @@ spec:
               memory: "0Gi"
               cpu: "0m"
             limits:
-              memory: "500Mi"
-              cpu: "250m"
+              memory: {{ .Values.datapages.memory }}
+              cpu: {{ .Values.datapages.cpu }}

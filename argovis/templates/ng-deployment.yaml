@@ -5,7 +5,7 @@ metadata:
   labels:
     app: ng
 spec:
-  replicas: 1
+  replicas: {{ .Values.ng.replicas }}
   selector:
     matchLabels:
       app: ng
@@ -34,8 +34,8 @@ spec:
               memory: "0Gi"
               cpu: "0m"
             limits:
-              memory: "1Gi"
-              cpu: "250m"
+              memory: {{ .Values.ng.memory }}
+              cpu: {{ .Values.ng.cpu }}
       securityContext:
         runAsUser: 1000830000
         runAsGroup: 1000830000
