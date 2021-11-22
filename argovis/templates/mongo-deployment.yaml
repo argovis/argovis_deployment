@@ -5,7 +5,7 @@ metadata:
   labels:
     app: mongo
 spec:
-  replicas: 1
+  replicas: {{ .Values.mongo.replicas }}
   selector:
     matchLabels:
       app: mongo
@@ -27,8 +27,8 @@ spec:
               memory: "0Gi"
               cpu: "0m"
             limits:
-              memory: "8Gi"
-              cpu: "1000m"
+              memory: {{ .Values.mongo.memory }}
+              cpu: {{ .Values.mongo.cpu }}
           volumeMounts:
             - mountPath: "/data/db"
               name: mongostore
@@ -39,6 +39,6 @@ spec:
               - --eval
               - db.adminCommand('ping')
             failureThreshold: 3
-            periodSeconds: 10
+            periodSeconds: 300
             successThreshold: 1
             timeoutSeconds: 5
