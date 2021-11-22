@@ -18,7 +18,7 @@ api:
   cpu: "250m"
 ng:
   repository: argovis/ng
-  tag: 2.0.0-rc4
+  tag: 2.0.0-rc5
   replicas: 1
   api_root: http://argovis-api-atoc-argovis-dev.apps.containers01.colorado.edu
   dp_root: http://argovis-datapages-atoc-argovis-dev.apps.containers01.colorado.edu
