@@ -18,7 +18,7 @@ services:
     volumes:
        - /storage/mongodb:/data/db:Z
   api:
-    image: argovis/api:2.0.0-rc3
+    image: argovis/api:2.0.0-rc4
     restart: always
     ports:
      - 8080:8080
