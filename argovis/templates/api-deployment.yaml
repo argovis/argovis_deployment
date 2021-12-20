@@ -29,4 +29,16 @@ spec:
             limits:
               memory: {{ .Values.api.memory }}
               cpu: {{ .Values.api.cpu }}
-
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: app
+                  operator: In
+                  values:
+                  - api
+                  - mongo
+              topologyKey: kubernetes.io/hostname
