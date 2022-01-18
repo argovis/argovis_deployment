@@ -8,7 +8,7 @@ redis:
   repository: argovis/redis
   tag: 6.2.6-211114
   replicas: 1
-  memory: "500Mi"
+  memory: "250Mi"
   cpu: "100m"
 api:
   repository: argovis/api
