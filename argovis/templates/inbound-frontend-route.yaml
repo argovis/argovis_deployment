@@ -3,7 +3,7 @@ kind: Route
 metadata:
   name: argovis
 spec:
-  host: argovis-atoc-argovis-dev.apps.containers01.colorado.edu
+  host: argovis-atoc-argovis-dev.apps.containers02.colorado.edu
   to:
     kind: Service
     name: ng
@@ -12,6 +12,6 @@ spec:
     targetPort: 3000
 status:
   ingress:
-    - host: argovis-atoc-argovis-dev.apps.containers01.colorado.edu
+    - host: argovis-atoc-argovis-dev.apps.containers02.colorado.edu
       routerName: default
-      routerCanonicalHostname: apps.containers01.colorado.edu
+      routerCanonicalHostname: apps.containers02.colorado.edu

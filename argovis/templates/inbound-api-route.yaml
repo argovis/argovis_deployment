@@ -5,7 +5,7 @@ metadata:
   annotations:
     haproxy.router.openshift.io/timeout: 5m
 spec:
-  host: argovis-api-atoc-argovis-dev.apps.containers01.colorado.edu
+  host: argovis-api-atoc-argovis-dev.apps.containers02.colorado.edu
   to:
     kind: Service
     name: api
@@ -14,7 +14,7 @@ spec:
     targetPort: 8080
 status:
   ingress:
-    - host: argovis-api-atoc-argovis-dev.apps.containers01.colorado.edu
+    - host: argovis-api-atoc-argovis-dev.apps.containers02.colorado.edu
       routerName: default
-      routerCanonicalHostname: apps.containers01.colorado.edu
+      routerCanonicalHostname: apps.containers02.colorado.edu
 
