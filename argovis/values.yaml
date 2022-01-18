@@ -19,7 +19,7 @@ api:
 ng:
   repository: argovis/ng
   tag: 2.0.0-rc5
-  replicas: 1
+  replicas: 0
   api_root: http://argovis-api-atoc-argovis-dev.apps.containers01.colorado.edu
   dp_root: http://argovis-datapages-atoc-argovis-dev.apps.containers01.colorado.edu
   memory: "1Gi"
@@ -27,6 +27,6 @@ ng:
 datapages:
   repository: argovis/datapages
   tag: 2.0.0-rc2
-  replicas: 1
+  replicas: 0
   memory: "500Mi"
   cpu: "250m"

@@ -2,18 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: ng-deployment
-  labels:
-    app: ng
 spec:
   replicas: {{ .Values.ng.replicas }}
   selector:
     matchLabels:
-      app: ng
+      component: ng
   template:
     metadata:
       name: argong
       labels:
-        app: ng
+        component: ng
+        tier: web
     spec:
       containers:
         - name: argong

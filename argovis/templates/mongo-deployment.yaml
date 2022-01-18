@@ -2,18 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: mongo-deployment
-  labels:
-    app: mongo
 spec:
   replicas: {{ .Values.mongo.replicas }}
   selector:
     matchLabels:
-      app: mongo
+      component: mongo
   template:
     metadata:
       name: argomongo
       labels:
-        app: mongo
+        component: mongo
+        tier: db
     spec:
       volumes:
         - name: mongostore

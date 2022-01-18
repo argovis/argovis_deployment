@@ -5,11 +5,11 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      app: mongo
+      component: mongo
   ingress:
   - from:
     - podSelector:
         matchLabels:
-          app: api
+          tier: api
     ports:
       - port: 27017
