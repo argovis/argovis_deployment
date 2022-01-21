@@ -2,7 +2,7 @@ version: '3'
 services:
   ng:
     image: argovis/ng:2.0.0-rc5
-    user: 1000830000:1000830000
+    user: 1000660000:1000660000
     restart: always
     environment:
       ARGOVIS_API_ROOT: 'http://127.0.0.1:8080'
