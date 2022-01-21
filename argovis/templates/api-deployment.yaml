@@ -2,18 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api-deployment
-  labels:
-    app: api
 spec:
   replicas: {{ .Values.api.replicas }}
   selector:
     matchLabels:
-      app: api
+      component: api
   template:
     metadata:
       name: argoapi
       labels:
-        app: api
+        component: api
+        tier: api
     spec:
       containers:
         - name: argoapi
@@ -36,9 +35,9 @@ spec:
             podAffinityTerm:
               labelSelector:
                 matchExpressions:
-                - key: app
+                - key: tier
                   operator: In
                   values:
                   - api
-                  - mongo
+                  - db
               topologyKey: kubernetes.io/hostname

@@ -4,7 +4,7 @@ metadata:
   name: database
 spec:
   selector:
-    app: mongo
+    component: mongo
   ports:
     - port: 27017
       targetPort: 27017

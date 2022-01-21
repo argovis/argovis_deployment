@@ -2,18 +2,17 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: datapages-deployment
-  labels:
-    app: datapages
 spec:
   replicas: {{ .Values.datapages.replicas }}
   selector:
     matchLabels:
-      app: datapages
+      component: datapages
   template:
     metadata:
       name: argodatapages
       labels:
-        app: datapages
+        component: datapages
+        tier: web
     spec:
       containers:
         - name: argodatapages

@@ -3,7 +3,7 @@ kind: Route
 metadata:
   name: argovis-datapages
 spec:
-  host: argovis-datapages-atoc-argovis-dev.apps.containers01.colorado.edu
+  host: argovis-datapages-atoc-argovis-dev.apps.containers02.colorado.edu
   to:
     kind: Service
     name: datapages
@@ -12,6 +12,6 @@ spec:
     targetPort: 3000
 status:
   ingress:
-    - host: argovis-datapages-atoc-argovis-dev.apps.containers01.colorado.edu
+    - host: argovis-datapages-atoc-argovis-dev.apps.containers02.colorado.edu
       routerName: default
-      routerCanonicalHostname: apps.containers01.colorado.edu
+      routerCanonicalHostname: apps.containers02.colorado.edu
