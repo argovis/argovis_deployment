@@ -12,13 +12,13 @@ redis:
   cpu: "100m"
 api:
   repository: argovis/api
-  tag: 2.0.0-rc8
+  tag: 2.0.0-rc9
   replicas: 2
   memory: "2Gi"
   cpu: "1000m"
 ng:
   repository: argovis/ng
-  tag: 2.0.0-rc5
+  tag: 2.0.0-rc6
   replicas: 1
   api_root: http://argovis-api-atoc-argovis-dev.apps.containers02.colorado.edu
   dp_root: http://argovis-datapages-atoc-argovis-dev.apps.containers02.colorado.edu
@@ -30,3 +30,11 @@ datapages:
   replicas: 1
   memory: "500Mi"
   cpu: "250m"
+keymanager:
+  repository: argovis/apikey-manager
+  tag: 2.0.0-rc1
+  replicas: 1
+  memory: "100Mi"
+  cpu: "100m"
+
+
