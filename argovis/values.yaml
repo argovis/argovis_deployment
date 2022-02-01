@@ -32,7 +32,7 @@ datapages:
   cpu: "250m"
 keymanager:
   repository: argovis/apikey-manager
-  tag: 2.0.0-rc1
+  tag: 2.0.0-rc2
   replicas: 1
   memory: "100Mi"
   cpu: "100m"

@@ -28,6 +28,13 @@ spec:
             limits:
               memory: {{ .Values.api.memory }}
               cpu: {{ .Values.api.cpu }}
+          startupProbe:
+            periodSeconds: 5
+            failureThreshold: 3
+            timeoutSeconds: 5
+            httpGet:
+              path: /profiles/overview
+              port: 8080
       affinity:
         podAntiAffinity:
           preferredDuringSchedulingIgnoredDuringExecution:
