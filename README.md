@@ -22,7 +22,9 @@ Argovis consists of five microservices, wihch all have their own release process
 Also, this chart assumes there exists the following objects in the cluster: 
 
  - a PVC called `mongoback0`, which contains everything from `/data/db` in the mongo container.
- - a secret called `apitoken`, which contains a key `token` that will be used as an API token. This token must be present and active in mongodb.
+ - a secret called `apitoken`, which contains a key `token` that will be used as an API token by the frontend. This token must be present and active in mongodb's user table.
+ - a secret called `sendgrid-api-token`, which contains a key `SENDGRID_API_TOKEN`, with a value that will be used against the Sendgrid API.
+ - an API token active in mongodb's user table with the kv `"key": "guest"`
 
 When any of the underlying base images change, or anything about the orchestration structure changes, follow the procedures below to increment the release on the OKD cluster:
 
