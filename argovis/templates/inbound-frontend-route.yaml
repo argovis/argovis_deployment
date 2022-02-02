@@ -10,6 +10,10 @@ spec:
     weight: 100
   port:
     targetPort: 3000
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: None
+  wildcardPolicy: None
 status:
   ingress:
     - host: argovis-atoc-argovis-dev.apps.containers02.colorado.edu
