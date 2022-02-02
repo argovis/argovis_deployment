@@ -12,6 +12,10 @@ spec:
     weight: 100
   port:
     targetPort: 8080
+  tls:
+    termination: edge
+    insecureEdgeTerminationPolicy: None
+  wildcardPolicy: None
 status:
   ingress:
     - host: argovis-api-atoc-argovis-dev.apps.containers02.colorado.edu
