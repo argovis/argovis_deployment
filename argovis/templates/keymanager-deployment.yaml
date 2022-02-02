@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: keymanager-deployment
+spec:
+  replicas: {{ .Values.keymanager.replicas }}
+  selector:
+    matchLabels:
+      component: keymanager
+  template:
+    metadata:
+      name: apikeymanager
+      labels:
+        component: keymanager
+        tier: api
+    spec:
+      containers:
+        - name: keymanager
+          image: "{{ .Values.keymanager.repository }}:{{ .Values.keymanager.tag }}"
+          imagePullPolicy: Always
+          env:
+          - name: SENDGRID_API_KEY
+            valueFrom:
+              secretKeyRef:
+                name: sendgrid-api-token
+                key: SENDGRID_API_KEY
+          resources:
+            requests:
+              memory: "0Gi"
+              cpu: "0m"
+            limits:
+              memory: {{ .Values.keymanager.memory }}
+              cpu: {{ .Values.keymanager.cpu }}
+
+
+
+
