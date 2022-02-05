@@ -26,7 +26,7 @@ services:
     image: argovis/datapages:2.0.0-rc2
     restart: always
     environment:
-      ARGOVIS_API_KEY: 'xxx'
+      ARGOVIS_API_KEY: 'guest'
     ports:
      - 3030:3000
   redis:
