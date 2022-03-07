@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: apix-deployment
 spec:
-  replicas: {{ .Values.api.replicas }}
+  replicas: {{ .Values.apix.replicas }}
   selector:
     matchLabels:
       component: apix
