@@ -17,7 +17,7 @@ spec:
       volumes:
         - name: mongostore
           persistentVolumeClaim:
-            claimName: mongoback0
+            claimName: {{ .Values.mongo.pvcbacking }}
       containers:
         - name: task-pv-container
           image: "{{ .Values.mongo.repository }}:{{ .Values.mongo.tag }}"
