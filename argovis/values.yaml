@@ -13,14 +13,14 @@ redis:
   cpu: "100m"
 api:
   repository: argovis/api
-  tag: 2.0.0-rc15
-  replicas: 4
-  memory: "500Mi"
-  cpu: "250m"
+  tag: 2.0.0-rc17
+  replicas: 2
+  memory: "1500Mi"
+  cpu: "500m"
 apix:
   repository: argovis/api
   tag: dev
-  replicas: 1
+  replicas: 0
   memory: "500Mi"
   cpu: "250m"
 ng:
