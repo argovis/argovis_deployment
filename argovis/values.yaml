@@ -1,19 +1,19 @@
 mongo:
   repository: mongo
-  tag: 5.0.6
+  tag: 5.0.9
   replicas: 1
   memory: "8Gi"
   cpu: "500m"
   pvcbacking: "atoc-argovis-dev-nfs-pvc"
 redis:
   repository: argovis/redis
-  tag: 6.2.6-220415
+  tag: 7.0.2-220619
   replicas: 1
   memory: "250Mi"
   cpu: "100m"
 api:
   repository: argovis/api
-  tag: 2.0.0-rc17
+  tag: 2.0.0-rc21
   replicas: 2
   memory: "1500Mi"
   cpu: "500m"
@@ -39,7 +39,7 @@ datapages:
   cpu: "250m"
 keymanager:
   repository: argovis/apikey-manager
-  tag: 2.0.0-rc4
+  tag: 2.0.0-rc6
   replicas: 1
   memory: "100Mi"
   cpu: "100m"
