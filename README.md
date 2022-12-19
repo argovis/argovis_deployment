@@ -4,7 +4,7 @@ This repo will contain notes and resource on deploying Argovis to production.
 
 ## Release Process
 
-Argovis consists of five microservices, wihch all have their own release process (except for mongo, for which we use the off-the-shelf upstream). See the latest releases of each in the following repos:
+Argovis consists of four microservices, wihch all have their own release process (except for mongo, for which we use the off-the-shelf upstream). See the latest releases of each in the following repos:
 
  - API
    - GitHub: https://github.com/argovis/argovis_api
@@ -12,17 +12,15 @@ Argovis consists of five microservices, wihch all have their own release process
  - Redis
    - GitHub: https://github.com/argovis/argovis_redis
    - Docker Hub: https://hub.docker.com/repository/docker/argovis/redis
- - Angular:
-   - GitHub: https://github.com/argovis/argovisNg
-   - Docker Hub: https://hub.docker.com/repository/docker/argovis/ng
- - Datapages:
-   - GitHub: https://github.com/argovis/datapages
-   - Docker Hub: https://hub.docker.com/repository/docker/argovis/datapages
+ - React:
+   - GitHub: https://github.com/argovis/react
+   - Docker Hub: https://hub.docker.com/repository/docker/argovis/react
 
-Also, this chart assumes there exists the following objects in the cluster: 
+### Deploy to Kube
+
+Kubernetes is Argovis' preferred deployment target, when a managed cluster is available. To this end, we provide a Helm chart in this repo. This chart assumes there exists the following objects in the cluster: 
 
  - a PVC called `mongoback0`, which contains everything from `/data/db` in the mongo container.
- - a secret called `apitoken`, which contains a key `token` that will be used as an API token by the frontend. This token must be present and active in mongodb's user table.
  - a secret called `sendgrid-api-token`, which contains a key `SENDGRID_API_TOKEN`, with a value that will be used against the Sendgrid API.
  - an API token active in mongodb's user table with the kv `"key": "guest"`
 
@@ -39,4 +37,6 @@ Some helpful things to know about application management that you may occassiona
  - Delete / recreate application: `helm uninstall argovis` / `helm install argovis ./argovis`
  - Undo last update: `helm rollback argovis`
 
+### Deploy to Swarm
 
+In the event that Argovis must be deployed to an environment where a managed Kubernetes service isn't available, we also provide a script to deploy services and containers to Docker Swarm. Read `swarm-deploy.sh` and make sure image tags and environment variables are up to date, and deploy to a host with sufficient resources and Docker installed with `bash swarm-deploy.sh`.

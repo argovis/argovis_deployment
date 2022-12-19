@@ -2,44 +2,32 @@ mongo:
   repository: mongo
   tag: 5.0.9
   replicas: 1
-  memory: "8Gi"
-  cpu: "500m"
-  pvcbacking: "atoc-argovis-dev-nfs-pvc"
+  memorylimit: "8Gi"
+  cpulimit: "500m"
+  memoryrequest: "8Gi"
+  cpurequest: "500m"
+  pvcbacking: "atoc-argovis-dev-mongo-nfs-pvc"
 redis:
   repository: argovis/redis
-  tag: 7.0.2-220619
+  tag: 7.0.3-220713
   replicas: 1
-  memory: "250Mi"
+  memory: "100Mi"
   cpu: "100m"
 api:
   repository: argovis/api
-  tag: 2.0.0-rc21
-  replicas: 2
+  tag: 2.0.0-rc44
+  replicas: 1
   memory: "1500Mi"
   cpu: "500m"
 apix:
   repository: argovis/api
   tag: dev
   replicas: 0
-  memory: "500Mi"
-  cpu: "250m"
-ng:
-  repository: argovis/ng
-  tag: 2.0.0-rc6
-  replicas: 0
-  api_root: https://argovis-api-atoc-argovis-dev.apps.containers02.colorado.edu
-  dp_root: https://argovis-datapages-atoc-argovis-dev.apps.containers02.colorado.edu
-  memory: "1Gi"
-  cpu: "250m"
-datapages:
-  repository: argovis/datapages
-  tag: 2.0.0-rc2
-  replicas: 0
-  memory: "500Mi"
-  cpu: "250m"
+  memory: "1500Mi"
+  cpu: "500m"
 keymanager:
   repository: argovis/apikey-manager
-  tag: 2.0.0-rc6
+  tag: 2.0.0-rc10
   replicas: 1
   memory: "100Mi"
   cpu: "100m"

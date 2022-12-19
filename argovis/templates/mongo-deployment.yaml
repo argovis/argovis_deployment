@@ -23,11 +23,11 @@ spec:
           image: "{{ .Values.mongo.repository }}:{{ .Values.mongo.tag }}"
           resources:
             requests:
-              memory: "0Gi"
-              cpu: "0m"
+              memory: {{ .Values.mongo.memoryrequest }}
+              cpu: {{ .Values.mongo.cpurequest }}
             limits:
-              memory: {{ .Values.mongo.memory }}
-              cpu: {{ .Values.mongo.cpu }}
+              memory: {{ .Values.mongo.memorylimit }}
+              cpu: {{ .Values.mongo.cpulimit }}
           volumeMounts:
             - mountPath: "/data/db"
               name: mongostore
