@@ -33,7 +33,7 @@ spec:
             failureThreshold: 3
             timeoutSeconds: 5
             httpGet:
-              path: /profiles/overview
+              path: /argo/overview
               port: 8080
       affinity:
         podAntiAffinity:
