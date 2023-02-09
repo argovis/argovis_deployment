@@ -6,19 +6,20 @@ mongo:
   cpulimit: "500m"
   memoryrequest: "8Gi"
   cpurequest: "500m"
-  pvcbacking: "atoc-argovis-dev-mongo-nfs-pvc"
+  pvcbacking: "argo-mongo"
 redis:
   repository: argovis/redis
   tag: 7.0.3-220713
   replicas: 1
   memory: "100Mi"
-  cpu: "100m"
+  cpu: "50m"
 api:
   repository: argovis/api
-  tag: 2.0.0-rc44
-  replicas: 1
-  memory: "1500Mi"
+  tag: dev
+  replicas: 4
+  memory: "1000Mi"
   cpu: "500m"
+  argocore: 'here'
 apix:
   repository: argovis/api
   tag: dev
@@ -26,10 +27,9 @@ apix:
   memory: "1500Mi"
   cpu: "500m"
 keymanager:
-  repository: argovis/apikey-manager
-  tag: 2.0.0-rc10
+  repository: argovis/api-keymanager
+  tag: 2.0.0
   replicas: 1
   memory: "100Mi"
   cpu: "100m"
-
 
