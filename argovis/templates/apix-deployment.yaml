@@ -21,6 +21,10 @@ spec:
           env:
           - name: NODE_OPTIONS
             value: --max_old_space_size=2048
+          - name: ARGOCORE
+            value: {{ .Values.api.argocore }}
+          - name: ARGONODE
+            value: {{ .Values.api.argonode }}
           resources:
             requests:
               memory: "0Gi"
