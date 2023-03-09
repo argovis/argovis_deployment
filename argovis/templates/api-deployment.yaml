@@ -23,6 +23,8 @@ spec:
             value: --max_old_space_size=2048
           - name: ARGOCORE
             value: {{ .Values.api.argocore }}
+          - name: ARGONODE
+            value: {{ .Values.api.argonode }}
           resources:
             requests:
               memory: "0Gi"
@@ -35,7 +37,14 @@ spec:
             failureThreshold: 3
             timeoutSeconds: 5
             httpGet:
-              path: /argo/overview
+              path: /argo/vocabulary?parameter=source
+              port: 8080
+          livenessProbe:
+            periodSeconds: 60
+            failureThreshold: 3
+            timeoutSeconds: 5
+            httpGet:
+              path: /argo/vocabulary?parameter=source
               port: 8080
       affinity:
         podAntiAffinity:

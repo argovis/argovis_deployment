@@ -20,7 +20,7 @@ Argovis consists of four microservices, wihch all have their own release process
 
 Kubernetes is Argovis' preferred deployment target, when a managed cluster is available. To this end, we provide a Helm chart in this repo. This chart assumes there exists the following objects in the cluster: 
 
- - a PVC called `mongoback0`, which contains everything from `/data/db` in the mongo container.
+ - a PVC which contains everything from `/data/db` in the mongo container.
  - a secret called `sendgrid-api-token`, which contains a key `SENDGRID_API_TOKEN`, with a value that will be used against the Sendgrid API.
  - an API token active in mongodb's user table with the kv `"key": "guest"`
 
