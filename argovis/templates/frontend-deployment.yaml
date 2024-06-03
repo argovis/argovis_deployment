@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend-deployment
+spec:
+  replicas: {{ .Values.frontend.replicas }}
+  selector:
+    matchLabels:
+      component: frontend
+  template:
+    metadata:
+      name: frontend-pod
+      labels:
+        component: frontend
+        tier: web
+    spec:
+      containers:
+        - name: frontend
+          image: "{{ .Values.frontend.repository }}:{{ .Values.frontend.tag }}"
+          imagePullPolicy: Always
+          resources:
+            requests:
+              memory: "0Gi"
+              cpu: "0m"
+            limits:
+              memory: {{ .Values.frontend.memory }}
+              cpu: {{ .Values.frontend.cpu }}
+
+
+
+

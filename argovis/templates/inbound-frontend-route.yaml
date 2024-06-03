@@ -1,12 +1,14 @@
 apiVersion: route.openshift.io/v1
 kind: Route
 metadata:
-  name: argovis
+  name: argovis-frontend
+  annotations:
+    haproxy.router.openshift.io/timeout: 5m
 spec:
-  host: argovis-atoc-argovis-dev.apps.containers02.colorado.edu
+  host: argovis-frontend-atoc-argovis-dev.apps.containers02.colorado.edu
   to:
     kind: Service
-    name: ng
+    name: frontend
     weight: 100
   port:
     targetPort: 3000
@@ -16,6 +18,6 @@ spec:
   wildcardPolicy: None
 status:
   ingress:
-    - host: argovis-atoc-argovis-dev.apps.containers02.colorado.edu
+    - host: argovis-frontend-atoc-argovis-dev.apps.containers02.colorado.edu
       routerName: default
       routerCanonicalHostname: apps.containers02.colorado.edu
