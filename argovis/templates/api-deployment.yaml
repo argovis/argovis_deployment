@@ -37,14 +37,14 @@ spec:
             failureThreshold: 3
             timeoutSeconds: 5
             httpGet:
-              path: /argo/vocabulary?parameter=source
+              path: /ping
               port: 8080
           livenessProbe:
-            periodSeconds: 60
+            periodSeconds: 300
             failureThreshold: 3
             timeoutSeconds: 5
             httpGet:
-              path: /argo/vocabulary?parameter=source
+              path: /ping
               port: 8080
       affinity:
         podAntiAffinity:
