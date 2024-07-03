@@ -9,13 +9,13 @@ mongo:
   pvcbacking: "argo-mongo-b"
 redis:
   repository: argovis/redis
-  tag: 7.0.3-220713
+  tag: 7.0.15-240702
   replicas: 1
   memory: "100Mi"
   cpu: "50m"
 api:
   repository: argovis/api
-  tag: 2.26.0
+  tag: 2.26.1
   replicas: 3
   memory: "1000Mi"
   cpu: "500m"
