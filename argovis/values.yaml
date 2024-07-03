@@ -1,6 +1,6 @@
 mongo:
   repository: mongo
-  tag: 5.0.9
+  tag: 5.0.27
   replicas: 1
   memorylimit: "8Gi"
   cpulimit: "1000m"
@@ -9,13 +9,13 @@ mongo:
   pvcbacking: "argo-mongo-b"
 redis:
   repository: argovis/redis
-  tag: 7.0.3-220713
+  tag: 7.0.15-240702
   replicas: 1
   memory: "100Mi"
   cpu: "50m"
 api:
   repository: argovis/api
-  tag: 2.25.1
+  tag: 2.26.1
   replicas: 3
   memory: "1000Mi"
   cpu: "500m"
@@ -31,13 +31,13 @@ apix:
   argonode: 'core'
 keymanager:
   repository: argovis/api-keymanager
-  tag: 2.0.2
+  tag: 2.0.3
   replicas: 1
   memory: "500Mi"
   cpu: "100m"
 frontend:
   repository: argovis/react
-  tag: 2.9.1
+  tag: 2.9.2
   replicas: 1
   memory: "1000Mi"
   cpu: "1000m"
