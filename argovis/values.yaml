@@ -37,7 +37,7 @@ keymanager:
   cpu: "100m"
 frontend:
   repository: argovis/react
-  tag: 2.9.2
+  tag: 2.9.3
   replicas: 1
   memory: "1000Mi"
   cpu: "1000m"
