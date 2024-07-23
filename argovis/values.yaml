@@ -15,7 +15,7 @@ redis:
   cpu: "50m"
 api:
   repository: argovis/api
-  tag: 2.27.0
+  tag: 2.27.1
   replicas: 3
   memory: "1000Mi"
   cpu: "500m"
@@ -37,7 +37,7 @@ keymanager:
   cpu: "100m"
 frontend:
   repository: argovis/react
-  tag: 2.10.0
+  tag: 2.10.1
   replicas: 1
   memory: "1000Mi"
   cpu: "1000m"
