@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prometheus-deployment
+spec:
+  replicas: {{ .Values.prom.replicas }}
+  selector:
+    matchLabels:
+      component: prom
+  template:
+    metadata:
+      name: prom
+      labels:
+        component: prom
+        tier: monitoring
+    spec:
+      volumes:
+        - name: promdb
+          persistentVolumeClaim:
+            claimName: {{ .Values.prom.pvcbacking }}
+      containers:
+        - name: prom-server
+          image: "{{ .Values.prom.repository }}:{{ .Values.prom.tag }}"
+          imagePullPolicy: Always
+          resources:
+            limits:
+              memory: {{ .Values.prom.memory }}
+              cpu: {{ .Values.prom.cpu }}
+          volumeMounts:
+            - mountPath: "/data/prometheus"
+              name: promdb
