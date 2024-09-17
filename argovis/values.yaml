@@ -15,7 +15,7 @@ redis:
   cpu: "50m"
 api:
   repository: argovis/api
-  tag: 2.28.0
+  tag: 2.29.1
   replicas: 2
   memory: "1000Mi"
   cpu: "500m"
@@ -41,4 +41,10 @@ frontend:
   replicas: 1
   memory: "1000Mi"
   cpu: "1000m"
-
+prom:
+  repository: argovis/prometheus
+  tag: 240917
+  replicas: 1
+  memory: "100Mi"
+  cpu: "100m"
+  pvcbacking: prometheus-tsdb

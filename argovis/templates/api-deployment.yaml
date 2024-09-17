@@ -2,17 +2,21 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: api-deployment
+  labels:
+    app: prom-api
 spec:
   replicas: {{ .Values.api.replicas }}
   selector:
     matchLabels:
       component: api
+      app: prom-api
   template:
     metadata:
       name: argoapi
       labels:
         component: api
         tier: api
+        app: prom-api
     spec:
       containers:
         - name: argoapi
