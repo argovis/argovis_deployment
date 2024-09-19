@@ -23,6 +23,9 @@ spec:
           image: "{{ .Values.prom.repository }}:{{ .Values.prom.tag }}"
           imagePullPolicy: Always
           resources:
+            requests:
+              memory: "0Gi"
+              cpu: "0m"
             limits:
               memory: {{ .Values.prom.memory }}
               cpu: {{ .Values.prom.cpu }}

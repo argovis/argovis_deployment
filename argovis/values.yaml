@@ -43,7 +43,7 @@ frontend:
   cpu: "1000m"
 prom:
   repository: argovis/prometheus
-  tag: 240917
+  tag: 240918-core
   replicas: 1
   memory: "100Mi"
   cpu: "100m"
