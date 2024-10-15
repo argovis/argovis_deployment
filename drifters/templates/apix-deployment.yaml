@@ -1,25 +1,25 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-deployment
+  name: apix-deployment
   labels:
     app: prom-api
 spec:
   replicas: {{ .Values.apix.replicas }}
   selector:
     matchLabels:
-      component: api
+      component: apix
       app: prom-api
   template:
     metadata:
-      name: argoapi
+      name: argoapix
       labels:
-        component: api
+        component: apix
         tier: api
         app: prom-api
     spec:
       containers:
-        - name: argoapi
+        - name: argoapix
           image: "{{ .Values.apix.repository }}:{{ .Values.apix.tag }}"
           imagePullPolicy: Always
           env:

@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: apix-deployment
+  name: api-deployment
   labels:
     app: prom-api
 spec:
