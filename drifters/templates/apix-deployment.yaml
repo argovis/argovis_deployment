@@ -1,0 +1,65 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: api-deployment
+  labels:
+    app: prom-api
+spec:
+  replicas: {{ .Values.apix.replicas }}
+  selector:
+    matchLabels:
+      component: api
+      app: prom-api
+  template:
+    metadata:
+      name: argoapi
+      labels:
+        component: api
+        tier: api
+        app: prom-api
+    spec:
+      containers:
+        - name: argoapi
+          image: "{{ .Values.apix.repository }}:{{ .Values.apix.tag }}"
+          imagePullPolicy: Always
+          env:
+          - name: NODE_OPTIONS
+            value: --max_old_space_size=2048
+          - name: ARGOCORE
+            value: {{ .Values.apix.argocore }}
+          - name: ARGONODE
+            value: {{ .Values.apix.argonode }}
+          resources:
+            requests:
+              memory: "0Gi"
+              cpu: "0m"
+            limits:
+              memory: {{ .Values.apix.memory }}
+              cpu: {{ .Values.apix.cpu }}
+          startupProbe:
+            periodSeconds: 5
+            failureThreshold: 3
+            timeoutSeconds: 5
+            httpGet:
+              path: /ping
+              port: 8080
+          livenessProbe:
+            periodSeconds: 300
+            failureThreshold: 3
+            timeoutSeconds: 5
+            httpGet:
+              path: /ping
+              port: 8080
+      affinity:
+        podAntiAffinity:
+          preferredDuringSchedulingIgnoredDuringExecution:
+          - weight: 100
+            podAffinityTerm:
+              labelSelector:
+                matchExpressions:
+                - key: tier
+                  operator: In
+                  values:
+                  - api
+                  - db
+              topologyKey: kubernetes.io/hostname
