@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: api
+  name: apix
   labels: 
     app: prom-api
 spec:
   type: NodePort
   selector:
-    component: api
+    component: apix
     app: prom-api
   ports:
     - port: 8080
