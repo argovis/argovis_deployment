@@ -15,7 +15,7 @@ redis:
   cpu: "50m"
 api:
   repository: argovis/api
-  tag: 2.33.0
+  tag: 2.35.0
   replicas: 1
   memory: "500Mi"
   cpu: "250m"
