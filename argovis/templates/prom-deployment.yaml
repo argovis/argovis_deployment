@@ -22,7 +22,14 @@ spec:
         - name: prom-server
           image: "{{ .Values.prom.repository }}:{{ .Values.prom.tag }}"
           imagePullPolicy: Always
+          args:
+            - "--config.file=/etc/prometheus/prometheus.yml"
+            - "--storage.tsdb.path=/data/prometheus"
+            - "--storage.tsdb.retention.time=90d"
           resources:
+            requests:
+              memory: "0Gi"
+              cpu: "0m"
             limits:
               memory: {{ .Values.prom.memory }}
               cpu: {{ .Values.prom.cpu }}
