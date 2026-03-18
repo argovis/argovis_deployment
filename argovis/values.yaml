@@ -1,5 +1,5 @@
 mongo:
-  repository: mongo
+  repository: docker.io/library/mongo
   tag: 5.0.27
   replicas: 1
   memorylimit: "8Gi"
@@ -15,7 +15,7 @@ redis:
   cpu: "50m"
 api:
   repository: argovis/api
-  tag: 2.36.2
+  tag: 2.43.0
   replicas: 2
   memory: "2000Mi"
   cpu: "500m"
@@ -31,13 +31,13 @@ apix:
   argonode: 'core'
 keymanager:
   repository: argovis/api-keymanager
-  tag: 2.0.3
+  tag: 2.1.0
   replicas: 1
   memory: "500Mi"
   cpu: "100m"
 frontend:
   repository: argovis/react
-  tag: dev
+  tag: 2.23.1
   replicas: 1
   memory: "1000Mi"
   cpu: "1000m"
