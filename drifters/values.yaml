@@ -1,12 +1,12 @@
 mongo:
   repository: docker.io/library/mongo
-  tag: 5.0.27
+  tag: 8.0.34
   replicas: 1
   memorylimit: "8Gi"
   cpulimit: "1000m"
   memoryrequest: "8Gi"
   cpurequest: "1000m"
-  pvcbacking: "mongo-back"
+  pvcbacking: "mongo-back-csi"
 redis:
   repository: argovis/redis
   tag: 7.0.15-240702
@@ -15,7 +15,7 @@ redis:
   cpu: "50m"
 api:
   repository: argovis/api
-  tag: 2.35.0
+  tag: 2.43.2
   replicas: 1
   memory: "500Mi"
   cpu: "250m"
