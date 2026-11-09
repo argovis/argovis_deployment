@@ -1,21 +1,21 @@
 mongo:
   repository: docker.io/library/mongo
-  tag: 5.0.27
+  tag: 8.0.34
   replicas: 1
   memorylimit: "8Gi"
   cpulimit: "1000m"
   memoryrequest: "8Gi"
   cpurequest: "1000m"
-  pvcbacking: "argo-mongo-b"
+  pvcbacking: "argo-mongo-b-csi"
 redis:
   repository: argovis/redis
-  tag: 7.0.15-240702
+  tag: 7.0.15-260721
   replicas: 1
   memory: "100Mi"
   cpu: "50m"
 api:
   repository: argovis/api
-  tag: 2.43.0
+  tag: 2.44.0
   replicas: 2
   memory: "2000Mi"
   cpu: "500m"
@@ -31,13 +31,13 @@ apix:
   argonode: 'core'
 keymanager:
   repository: argovis/api-keymanager
-  tag: 2.1.0
+  tag: 2.1.2
   replicas: 1
   memory: "500Mi"
   cpu: "100m"
 frontend:
   repository: argovis/react
-  tag: 2.23.1
+  tag: 2.24.0
   replicas: 1
   memory: "1000Mi"
   cpu: "1000m"
