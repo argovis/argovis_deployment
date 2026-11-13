@@ -26,9 +26,11 @@ spec:
           - name: NODE_OPTIONS
             value: --max_old_space_size=2048
           - name: ARGOCORE
-            value: {{ .Values.api.argocore }}
+            value: {{ .Values.apix.argocore }}
           - name: ARGONODE
-            value: {{ .Values.api.argonode }}
+            value: {{ .Values.apix.argonode }}
+          - name: MONGOCONNECT
+            value: {{ .Values.apix.mongoconnect }}
           resources:
             requests:
               memory: "0Gi"

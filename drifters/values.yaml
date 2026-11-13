@@ -15,12 +15,13 @@ redis:
   cpu: "50m"
 api:
   repository: argovis/api
-  tag: 2.43.2
+  tag: 2.45.0
   replicas: 1
   memory: "500Mi"
   cpu: "250m"
   argocore: 'https://argovis-api.colorado.edu'
   argonode: 'miami'
+  mongoconnect: 'mongodb://database/argo'
 apix:
   repository: argovis/api
   tag: dev
@@ -29,6 +30,7 @@ apix:
   cpu: "250m"
   argocore: 'https://argovis-api.colorado.edu'
   argonode: 'miami'
+  mongoconnect: 'mongodb://database/argo'
 prom:
   repository: argovis/prometheus
   tag: 240918-drifters

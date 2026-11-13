@@ -29,6 +29,8 @@ spec:
             value: {{ .Values.api.argocore }}
           - name: ARGONODE
             value: {{ .Values.api.argonode }}
+          - name: MONGOCONNECT
+            value: {{ .Values.api.mongoconnect }}
           resources:
             requests:
               memory: "0Gi"
