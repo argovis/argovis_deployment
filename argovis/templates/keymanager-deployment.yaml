@@ -24,6 +24,8 @@ spec:
               secretKeyRef:
                 name: sendgrid-api-token
                 key: SENDGRID_API_KEY
+          - name: MONGOCONNECT
+            value: {{ .Values.keymanager.mongoconnect }}
           resources:
             requests:
               memory: "0Gi"

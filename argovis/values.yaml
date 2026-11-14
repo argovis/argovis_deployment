@@ -33,10 +33,11 @@ apix:
   mongoconnect: mongodb://database/argo
 keymanager:
   repository: argovis/api-keymanager
-  tag: 2.1.2
+  tag: 2.2.0
   replicas: 1
   memory: "500Mi"
   cpu: "100m"
+  mongoconnect: mongodb://database/argo
 frontend:
   repository: argovis/react
   tag: 2.24.0
