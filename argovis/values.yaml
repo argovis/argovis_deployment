@@ -15,12 +15,13 @@ redis:
   cpu: "50m"
 api:
   repository: argovis/api
-  tag: 2.44.0
+  tag: 2.45.0
   replicas: 2
   memory: "2000Mi"
   cpu: "500m"
   argocore: 'here'
   argonode: 'core'
+  mongoconnect: mongodb://database/argo
 apix:
   repository: argovis/api
   tag: dev
@@ -29,6 +30,7 @@ apix:
   cpu: "500m"
   argocore: 'here'
   argonode: 'core'
+  mongoconnect: mongodb://database/argo
 keymanager:
   repository: argovis/api-keymanager
   tag: 2.1.2
