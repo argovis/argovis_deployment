@@ -29,8 +29,11 @@ spec:
             value: {{ .Values.apix.argocore }}
           - name: ARGONODE
             value: {{ .Values.apix.argonode }}
-          - name: MONGOCONNECT
-            value: {{ .Values.apix.mongoconnect }}
+          - name: MONGOCONNECT    
+            valueFrom:
+              secretKeyRef:
+                name: mongo-vanilla     
+                key: mongoconnect 
           resources:
             requests:
               memory: "0Gi"

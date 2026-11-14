@@ -21,7 +21,6 @@ api:
   cpu: "250m"
   argocore: 'https://argovis-api.colorado.edu'
   argonode: 'miami'
-  mongoconnect: 'mongodb://database/argo'
 apix:
   repository: argovis/api
   tag: dev
@@ -30,7 +29,6 @@ apix:
   cpu: "250m"
   argocore: 'https://argovis-api.colorado.edu'
   argonode: 'miami'
-  mongoconnect: 'mongodb://database/argo'
 prom:
   repository: argovis/prometheus
   tag: 240918-drifters
