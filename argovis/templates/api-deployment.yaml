@@ -30,7 +30,10 @@ spec:
           - name: ARGONODE
             value: {{ .Values.api.argonode }}
           - name: MONGOCONNECT
-            value: {{ .Values.api.mongoconnect }}
+            valueFrom:
+              secretKeyRef:
+                name: mongo-vanilla
+                key: mongoconnect
           resources:
             requests:
               memory: "0Gi"
