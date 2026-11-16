@@ -19,13 +19,11 @@ spec:
           image: "{{ .Values.keymanager.repository }}:{{ .Values.keymanager.tag }}"
           imagePullPolicy: Always
           env:
-          - name: SENDGRID_API_KEY
+          - name: MONGOCONNECT
             valueFrom:
               secretKeyRef:
-                name: sendgrid-api-token
-                key: SENDGRID_API_KEY
-          - name: MONGOCONNECT
-            value: {{ .Values.keymanager.mongoconnect }}
+                name: mongo-vanilla
+                key: mongoconnect
           resources:
             requests:
               memory: "0Gi"
