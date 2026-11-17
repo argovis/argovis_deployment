@@ -32,8 +32,8 @@ spec:
           - name: MONGOCONNECT
             valueFrom:
               secretKeyRef:
-                name: mongo-vanilla
-                key: mongoconnect
+                name: mongo-users
+                key: argo-ro-uri
           resources:
             requests:
               memory: "0Gi"
